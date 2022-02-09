@@ -49,11 +49,11 @@ const Expense = ({
         leadingActions={leadingActions()}
         trailingActions={trailingActions()}
       >
-        <div className="bg-slate-200 flex items-center justify-between w-full border-b border-slate-300 p-2">
-          <div className="">{expense}</div>
-          <div className="">{quantity}</div>
-          <div className="">{category}</div>
-          <div className="">{date}</div>
+        <div className="bg-slate-200 flex flex-row items-center justify-around w-full border-b border-slate-300 py-2">
+          <div className="text-center">{expense}</div>
+          <div className="text-center">{quantity}</div>
+          <div className="text-center">{category}</div>
+          <div className="text-center">{date}</div>
         </div>
       </SwipeableListItem>
     </SwipeableList>

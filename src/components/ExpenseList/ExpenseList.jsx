@@ -8,15 +8,14 @@ const ExpenseList = ({
   filtredExpenses,
 }) => {
   return (
-    <div className="flex justify-start flex-col h-auto w-auto p-5 my-5 bg-slate-200 rounded-lg shadow-lg sm:mx-4 border border-slate-700">
+    <div className="flex flex-col h-auto p-5 my-5 bg-slate-200 rounded-lg shadow-lg sm:overflow-auto border w-full border-slate-700">
       <h2>{expenses.length ? 'Expenses' : 'No expenses'}</h2>
 
       <div className="my-2" />
-
       {expenses.length ? (
         <table className="table-auto">
           <thead>
-            <tr className=" flex flex-row items-center justify-between border-b border-slate-300 py-2 px-2 bg-slate-300">
+            <tr className="flex flex-row items-center justify-around border-b border-slate-300 py-2 bg-slate-300">
               <th>Expense</th>
               <th>Quantity</th>
               <th>Category</th>
@@ -25,12 +24,12 @@ const ExpenseList = ({
           </thead>
           <tbody>
             <tr>
-              <td className="w-96">
+              <td className="overflow-scroll">
                 {filter
                   ? filtredExpenses.map((expense) => (
                       <div
                         key={expense.id}
-                        className="flex flex-row justify-center items-center overflow-auto"
+                        className="flex flex-row items-center justify-around"
                       >
                         <Expense
                           id={expense.id}
@@ -46,7 +45,7 @@ const ExpenseList = ({
                   : expenses.map((expense) => (
                       <div
                         key={expense.id}
-                        className="flex flex-row justify-center items-center overflow-auto"
+                        className="flex flex-row justify-around items-center overflow-auto"
                       >
                         <Expense
                           id={expense.id}

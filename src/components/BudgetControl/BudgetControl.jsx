@@ -53,14 +53,9 @@ const BudgetControl = ({
   };
 
   return (
-    <div className="container flex flex-col">
-      <div>
-        <h2 className="text-xl text-start text-slate-400 pb-4">
-          Budget Control
-        </h2>
-      </div>
-      <section className="grid grid-cols-2 sm:grid-cols-1 gap-6 text-slate-200 px-10 sm:px-1">
-        <div className="w-auto">
+    <div className="container flex flex-col bg-slate-900 items-center rounded-lg p-10">
+      <section className="grid grid-cols-2 sm:grid-cols-1 gap-6 text-slate-200 px-10 sm:px-1 place-items-center justify-items-center ">
+        <div className="grid place-items-center justify-items-center">
           <CircularProgressbar
             value={percentage}
             styles={buildStyles({
@@ -73,12 +68,6 @@ const BudgetControl = ({
         </div>
 
         <div className="grid grid-rows-3 w-auto md:grid-rows-1 ">
-          <button
-            onClick={handleResetApp}
-            className="bg-blue-500 rounded-md text-base shadow-lg "
-          >
-            Reset App
-          </button>
           <div>
             <p className="text-green-300">
               <span className="text-slate-200 font-semibold mr-2">Budget:</span>
@@ -101,6 +90,13 @@ const BudgetControl = ({
               {formatQuantity(spent)}
             </p>
           </div>
+
+          <button
+            onClick={handleResetApp}
+            className="rounded-md text-base shadow-md my-5 p-2 bg-blue-500 hover:bg-blue-600"
+          >
+            Reset App
+          </button>
         </div>
       </section>
     </div>
