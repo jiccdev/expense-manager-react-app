@@ -103,34 +103,34 @@ function App() {
         setExpenses={setExpenses}
       />
       <Fragment>
-        <main className="">
+        <div
+          className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-96 mt-10 rounded-md "
+          role="alert"
+        >
+          <p className="font-bold">Informational message</p>
+          <ul className="text-sm">
+            Each record has two 3 key actions:
+            <li>
+              {' '}
+              1.- Create a new expense from the plus sign, located on the left
+              side.
+            </li>
+            <li>
+              2.- Edit, this action is executed when you move the mouse cursor
+              to the right over the record.
+            </li>
+            <li>
+              3.- Delete, this action is executed when you move the mouse cursor
+              to the left over the record.
+            </li>
+          </ul>
+        </div>
+        <main className="flex flex-col justify-center items-center ">
           {isBudgetValid ? (
             <Filters filter={filter} setFilter={setFilter} />
           ) : null}
           {isBudgetValid ? (
             <>
-              <div
-                className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-full rounded-md"
-                role="alert"
-              >
-                <p className="font-bold">Informational message</p>
-                <ul className="text-sm">
-                  Each record has two 3 key actions:
-                  <li>
-                    {' '}
-                    1.- Create a new expense from the plus sign, located on the
-                    left side.
-                  </li>
-                  <li>
-                    2.- Edit, this action is executed when you move the mouse
-                    cursor to the right over the record.
-                  </li>
-                  <li>
-                    3.- Delete, this action is executed when you move the mouse
-                    cursor to the left over the record.
-                  </li>
-                </ul>
-              </div>
               <main className="w-screen px-10">
                 <ExpenseList
                   expenses={expenses}
@@ -139,11 +139,11 @@ function App() {
                   filter={filter}
                   filtredExpenses={filtredExpenses}
                 />
+                <AiOutlinePlusCircle
+                  onClick={() => setIsModalActive(true)}
+                  className="absolute bottom-80 right-10 sm:right-14 sm:top-96 lg:bottom-10 cursor-pointer text-4xl text-cyan-500"
+                />
               </main>
-              <AiOutlinePlusCircle
-                onClick={() => setIsModalActive(true)}
-                className="absolute bottom-20 right-10 sm:right-14 sm:top-96 cursor-pointer text-4xl text-cyan-500"
-              />
             </>
           ) : null}
         </main>
